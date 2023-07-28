@@ -9,9 +9,9 @@ namespace SchoolNetAssociation.IntegrationTest
 {
     public class SchoolDistrictControllerTests : IClassFixture<WebApplicationFactory<Program>>
     {
+        private readonly Faker _faker;
         private readonly HttpClient _httpClient;
         private readonly Faker<SchoolDistrict> _schoolDistrictFaker;
-        private readonly Faker _faker;
 
         const string ClientBaseUrl = "api/SchoolDistrict";
 
@@ -20,12 +20,12 @@ namespace SchoolNetAssociation.IntegrationTest
             _httpClient = factory.CreateClient();
             _faker=new Faker();
             _schoolDistrictFaker = new Faker<SchoolDistrict>()
-                .RuleFor(sd => sd.Name, f => f.Company.CompanyName())
-                .RuleFor(sd => sd.Description, f => f.Lorem.Sentence())
-                .RuleFor(sd => sd.City, f => f.Address.City())
-                .RuleFor(sd => sd.Superintendent, f => f.Name.FullName())
-                .RuleFor(sd => sd.IsPublic, f => f.Random.Bool())
-                .RuleFor(sd => sd.NumberOfSchools, f => f.Random.Int(1, 1000));
+            .RuleFor(sd => sd.Name, f => f.Company.CompanyName())
+            .RuleFor(sd => sd.Description, f => f.Lorem.Sentence())
+            .RuleFor(sd => sd.City, f => f.Address.City())
+            .RuleFor(sd => sd.Superintendent, f => f.Name.FullName())
+            .RuleFor(sd => sd.IsPublic, f => f.Random.Bool())
+            .RuleFor(sd => sd.NumberOfSchools, f => f.Random.Int(1, 1000));
         }
 
         [Fact]
@@ -37,7 +37,7 @@ namespace SchoolNetAssociation.IntegrationTest
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            result.Should().NotBeEmpty();
+            result.Should().NotBeEmpty().And.BeAssignableTo<SchoolDistrict[]>();
         }
 
         [Fact]
@@ -53,9 +53,7 @@ namespace SchoolNetAssociation.IntegrationTest
 
             // Assert
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            result.Should().NotBeNull();
-            result.Should().Be(expectedSchoolDistrict);
-
+            result.Should().NotBeNull().And.Be(expectedSchoolDistrict);
         }
 
         [Fact]

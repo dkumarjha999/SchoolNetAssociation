@@ -10,27 +10,23 @@ namespace SchoolNetAssociation.API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<SchoolDistrict>>> GetAllSchoolDistrictsAsync()
         {
-            return Ok();
+            throw new NotImplementedException();
         }
 
-        [HttpGet("{id}", Name = "GetSchoolDistrictById")]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetSchoolDistrictByIdAsync(string id)
         {
-            return Ok();
+            throw new NotImplementedException();
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateSchoolDistrictAsync(SchoolDistrict schoolDistrict)
+        public async Task<IActionResult> CreateSchoolDistrictAsync([FromBody] SchoolDistrict schoolDistrict)
         {
-            if (schoolDistrict == null)
-            {
-                return BadRequest();
-            }
-            return CreatedAtRoute("GetSchoolDistrictById", new { id = schoolDistrict.Id }, schoolDistrict);
+            throw new NotImplementedException();
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateSchoolDistrictAsync(string id, SchoolDistrict schoolDistrict)
+        public async Task<IActionResult> UpdateSchoolDistrictAsync(string id, [FromBody] SchoolDistrict schoolDistrict)
         {
             throw new NotImplementedException();
         }
