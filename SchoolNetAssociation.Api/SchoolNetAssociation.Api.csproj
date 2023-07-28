@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\SchoolNetAssociation.Domain\SchoolNetAssociation.Domain.csproj" />
   </ItemGroup>
 
 </Project>
