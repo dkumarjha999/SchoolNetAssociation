@@ -34,13 +34,13 @@ namespace SchoolNetAssociation.UntiTest.Application.Services
 		private List<SchoolDistrict> GenerateFakeSchoolDistricts(int count)
 		{
 			var fakeSchoolDistricts = new Faker<SchoolDistrict>()
-				.RuleFor(sd => sd.Name, f => f.Company.CompanyName())
-				.RuleFor(sd => sd.Description, f => f.Lorem.Sentence())
-				.RuleFor(sd => sd.City, f => f.Address.City())
-				.RuleFor(sd => sd.Superintendent, f => f.Name.FullName())
-				.RuleFor(sd => sd.IsPublic, f => f.Random.Bool())
-				.RuleFor(sd => sd.NumberOfSchools, f => f.Random.Int(1, 1000))
-				.Generate(count);
+			.RuleFor(sd => sd.Name, f => f.Company.CompanyName())
+			.RuleFor(sd => sd.Description, f => f.Lorem.Sentence())
+			.RuleFor(sd => sd.City, f => f.Address.City())
+			.RuleFor(sd => sd.Superintendent, f => f.Name.FullName())
+			.RuleFor(sd => sd.IsPublic, f => f.Random.Bool())
+			.RuleFor(sd => sd.NumberOfSchools, f => f.Random.Int(1, 1000))
+			.Generate(count);
 
 			return fakeSchoolDistricts;
 		}

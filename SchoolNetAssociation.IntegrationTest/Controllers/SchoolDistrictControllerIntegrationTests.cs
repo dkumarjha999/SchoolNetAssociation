@@ -30,13 +30,13 @@ namespace SchoolNetAssociation.IntegrationTest
 		private List<SchoolDistrictDto> GetFakeSchoolDistrictDtos(int count)
 		{
 			var fakeSchoolDistricts = new Faker<SchoolDistrict>()
-				.RuleFor(sd => sd.Name, f => f.Company.CompanyName())
-				.RuleFor(sd => sd.Description, f => f.Lorem.Sentence())
-				.RuleFor(sd => sd.City, f => f.Address.City())
-				.RuleFor(sd => sd.Superintendent, f => f.Name.FullName())
-				.RuleFor(sd => sd.IsPublic, f => f.Random.Bool())
-				.RuleFor(sd => sd.NumberOfSchools, f => f.Random.Int(1, 10000))
-				.Generate(count);
+			.RuleFor(sd => sd.Name, f => f.Company.CompanyName())
+			.RuleFor(sd => sd.Description, f => f.Lorem.Sentence())
+			.RuleFor(sd => sd.City, f => f.Address.City())
+			.RuleFor(sd => sd.Superintendent, f => f.Name.FullName())
+			.RuleFor(sd => sd.IsPublic, f => f.Random.Bool())
+			.RuleFor(sd => sd.NumberOfSchools, f => f.Random.Int(1, 10000))
+			.Generate(count);
 
 			return _mapper.Map<List<SchoolDistrictDto>>(fakeSchoolDistricts);
 		}
