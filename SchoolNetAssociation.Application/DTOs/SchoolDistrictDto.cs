@@ -1,13 +1,7 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-
-namespace SchoolNetAssociation.Domain.Entities
+﻿namespace SchoolNetAssociation.Application.DTOs
 {
-	[BsonIgnoreExtraElements]
-	public class SchoolDistrict
+	public class SchoolDistrictDto
 	{
-		[BsonId]
-		[BsonRepresentation(BsonType.ObjectId)]
 		public string Id { get; set; }
 		public string Name { get; set; }
 		public string Description { get; set; }
